@@ -24,6 +24,12 @@ async function main() {
     "./SimpleStorage_sol_SimpleStorage.bin",
     "utf8"
   );
+
+  const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
+  console.log("Deploying Contract, please wait ...");
+  const contract = await contractFactory.deploy();
+  //can only use await key word in async function , telling code to stop here till contract deployed (requirements fulfilled)
+  console.log(contract);
 }
 
 main()
